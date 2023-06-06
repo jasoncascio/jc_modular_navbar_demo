@@ -34,6 +34,17 @@ view: modular_navigation_base {
     sql: '|' ;;
   }
 
+  dimension: testHTML {
+    type: string
+    sql:
+      CONCAT(
+          '<div style="color: blue;">'
+        ,   '<span style="font-size:20px;">[[stuff]]</span>'
+        , '</div>'
+      )
+    ;;
+  }
+
 
   # ** override hidden and label in extension as required **
   # ** Add more as required, currently supports 10 filters **
@@ -57,6 +68,10 @@ view: modular_navigation_base {
     type: string
     sql: '' ;;
     html:
+      {% assign splitHtml = testHTML._value | split: "[[stuff]]" %}
+      abc{{ splitHtml | size }}def
+      abc{{ splitHtml[0] }}def
+
       <!-- initial splits -->
       {% assign navItems = dashBindings._value | split: itemDelimiter._value %}
       {% assign filterItems = filterBindings._value | split: itemDelimiter._value %}
@@ -144,7 +159,8 @@ view: modular_navigation_base {
         </div>
 
       </center>
-      ;;
+
+    ;;
   }
 
 }
