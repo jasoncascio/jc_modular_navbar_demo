@@ -1,4 +1,4 @@
-view: advanced_modular_navigation_base {
+view: modular_navigation_base {
   extension: required
 
   ########################################
