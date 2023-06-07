@@ -187,8 +187,8 @@ view: advanced_modular_navigation_base {
         {% if _explore._dashboard_url == dashUrl %}
 
           <!-- handle dashName token -->
-          {% assign tempString1 = "" %}
           {% assign currentLinkTemplateParts = currentLinkTemplate._value | split: "[[dashName]]" %}
+          {% assign tempString1 = "" %}
           {% assign tempString1 = tempString1 | append: currentLinkTemplateParts[0] %}
           {% assign tempString1 = tempString1 | append: dashName %}
           {% assign tempString1 = tempString1 | append: currentLinkTemplateParts[1] %}
@@ -199,15 +199,15 @@ view: advanced_modular_navigation_base {
         {% else %}
 
           <!-- handle dashName token -->
-          {% assign tempString1 = "" %}
           {% assign linkTemplateParts = linkTemplate._value | split: "[[dashName]]" %}
+          {% assign tempString1 = "" %}
           {% assign tempString1 = tempString1 | append: linkTemplateParts[0] %}
           {% assign tempString1 = tempString1 | append: dashName %}
           {% assign tempString1 = tempString1 | append: linkTemplateParts[1] %}
 
           <!-- handle dashUrl token -->
-          {% assign tempString2 = "" %}
           {% assign linkTemplateParts = tempString1 | split: "[[dashUrl]]" %}
+          {% assign tempString2 = "" %}
           {% assign tempString2 = tempString2 | append: linkTemplateParts[0] %}
           {% assign tempString2 = tempString2 | append: dashUrl %}
           {% assign tempString2 = tempString2 | append: linkTemplateParts[1] %}
@@ -223,9 +223,8 @@ view: advanced_modular_navigation_base {
       <!-- ********************************************************* -->
       <!-- ******************* Assemble Navbar ********************* -->
       <!-- ********************************************************* -->
-      {% assign finalNavbarHtml = "" %}
-
       {% assign navBarTemplateParts = navBarTemplate._value | split: "[[navItems]]" %}
+      {% assign finalNavbarHtml = "" %}
       {% assign finalNavbarHtml = finalNavbarHtml | append: navBarTemplateParts[0] %}
       {% assign finalNavbarHtml = finalNavbarHtml | append: navItemsHtml %}
       {% assign finalNavbarHtml = finalNavbarHtml | append: navBarTemplateParts[1] %}
