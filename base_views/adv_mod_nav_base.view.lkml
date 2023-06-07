@@ -82,22 +82,6 @@ view: advanced_modular_navigation_base {
   }
 
 
-  ########################################
-  ###### All overrideable fields
-  ########################################
-  # dashBindings
-  # filterBindings
-  # navBarTemplate
-  # currentLinkTemplate
-  # linkTemplate
-  # itemDelimiter
-  # valueDelimiter
-
-
-
-
-  # ** override hidden and label in extension as required **
-  # ** Add more as required, currently supports 10 filters **
   filter: filter1 { hidden: yes label: "filter1" }
   filter: filter2 { hidden: yes label: "filter2" }
   filter: filter3 { hidden: yes label: "filter3" }
@@ -108,6 +92,7 @@ view: advanced_modular_navigation_base {
   filter: filter8 { hidden: yes label: "filter8" }
   filter: filter9 { hidden: yes label: "filter9" }
   filter: filter10 { hidden: yes label: "filter10" }
+  # ** Add more as required, currently supports 10 filters **
 
 
   ########################################
