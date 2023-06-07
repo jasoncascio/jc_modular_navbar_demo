@@ -54,9 +54,9 @@ view: navbar2 {
     type: string
     sql:
       CONCAT(
-        '<center>'
-        ,   '<div style="border-radius: 10px; padding: 10px 10px; height: 60px; background: #EEEEEE;">'
-        ,     '<span style="font-size: 18px; display: table; margin:0 auto;">'
+          '<center>'
+        ,   '<div style="border-radius: 20px; padding: 10px 10px; height: 60px; background: #EEEEEE;">'
+        ,     '<span style="font-size: 25px; display: table; margin:0 auto;">'
         ,       '<img style="float: left; height: 50px;" src="https://lh3.googleusercontent.com/WZZW8egBznCpFPKboxMmcMfElahmhpHs59xdCK6vq_NOCE6p9SuZu9VEuivUqTYBjXugN9_5BIE95VzQ76rl9kYQVhKDheu5afEb"/>'
         ,       '[[navItems]]'
         ,     '</span>'
