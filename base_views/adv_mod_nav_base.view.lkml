@@ -47,7 +47,7 @@ view: advanced_modular_navigation_base {
     hidden: yes
     description: "
       This defines the visual representation that the current dashboard link should take.
-      Available Tokens: {[[dashName]]: will render the dash name into the html}
+      Available Tokens: {[[dashName]]: will render the dash name into the html, [[dashUrl]]: writes url - pretty much always into an href}
     "
     type: string
     sql:
@@ -167,39 +167,30 @@ view: advanced_modular_navigation_base {
         {% assign dashName = navParts[1] %}
         {% assign dashUrl = "/dashboards/" | append: navParts[0] %}
 
-        <!-- build link -->
+        <!-- set template value -->
         {% if _explore._dashboard_url == dashUrl %}
-
-          <!-- handle dashName token -->
-          {% assign currentLinkTemplateParts = currentLinkTemplate._value | split: "[[dashName]]" %}
-          {% assign tempString1 = "" %}
-          {% assign tempString1 = tempString1 | append: currentLinkTemplateParts[0] %}
-          {% assign tempString1 = tempString1 | append: dashName %}
-          {% assign tempString1 = tempString1 | append: currentLinkTemplateParts[1] %}
-
-          <!-- add link to navItemsHtml -->
-          {% assign navItemsHtml = navItemsHtml | append: tempString1 %}
-
+          {% assign template = currentLinkTemplate._value %}
         {% else %}
-
-          <!-- handle dashName token -->
-          {% assign linkTemplateParts = linkTemplate._value | split: "[[dashName]]" %}
-          {% assign tempString1 = "" %}
-          {% assign tempString1 = tempString1 | append: linkTemplateParts[0] %}
-          {% assign tempString1 = tempString1 | append: dashName %}
-          {% assign tempString1 = tempString1 | append: linkTemplateParts[1] %}
-
-          <!-- handle dashUrl token -->
-          {% assign linkTemplateParts = tempString1 | split: "[[dashUrl]]" %}
-          {% assign tempString2 = "" %}
-          {% assign tempString2 = tempString2 | append: linkTemplateParts[0] %}
-          {% assign tempString2 = tempString2 | append: dashUrl %}
-          {% assign tempString2 = tempString2 | append: linkTemplateParts[1] %}
-
-          <!-- add link to navItemsHtml -->
-          {% assign navItemsHtml = navItemsHtml | append: tempString2 %}
-
+          {% assign template = linkTemplate._value %}
         {% endif %}
+
+        <!-- handle dashName token -->
+        {% assign templateParts = template | split: "[[dashName]]" %}
+        {% assign tempString1 = "" %}
+        {% assign tempString1 = tempString1 | append: templateParts[0] %}
+        {% assign tempString1 = tempString1 | append: dashName %}
+        {% assign tempString1 = tempString1 | append: templateParts[1] %}
+
+        <!-- handle dashUrl token -->
+        {% assign templateParts = tempString1 | split: "[[dashUrl]]" %}
+        {% assign tempString2 = "" %}
+        {% assign tempString2 = tempString2 | append: templateParts[0] %}
+        {% assign tempString2 = tempString2 | append: dashUrl %}
+        {% assign tempString2 = tempString2 | append: templateParts[1] %}
+
+        <!-- add link to navItemsHtml -->
+        {% assign navItemsHtml = navItemsHtml | append: tempString2 %}
+
       {% endfor %}
 
 
