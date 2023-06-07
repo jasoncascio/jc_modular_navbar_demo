@@ -126,6 +126,7 @@ view: advanced_modular_navigation_base {
       <!-- loop through filterItems -->
       {% assign filterItems = filterBindings._value | split: itemDelimiter._value %}
       {% for filterItem in filterItems %}
+
       <!-- split filter into parts -->
         {% assign filterParts = filterItem | split: valueDelimiter._value %}
         {% assign filterField = filterParts[0] %} <!-- for readability -->
@@ -161,10 +162,8 @@ view: advanced_modular_navigation_base {
             <!-- if you see this value, you've added more filters than supported in filterBindings -->
         {% endcase %}
 
-        <!-- create individual filterString -->
+        <!-- create individual filterString & add to end of queryString -->
         {% assign filterString = filterName | append: "=" | append: filterValue %}
-
-        <!-- tack individual filterString onto end of queryString -->
         {% assign queryString = queryString | append: filterString | append: '&' %}
       {% endfor %}
 
@@ -230,7 +229,6 @@ view: advanced_modular_navigation_base {
       {% assign finalNavbarHtml = finalNavbarHtml | append: navBarTemplateParts[1] %}
 
       {{ finalNavbarHtml }}
-
 
 
       <!-- NOTE: There's a bug in _explore._dashboard_url liquid implementation https://buganizer.corp.google.com/issues/281606368 -->
