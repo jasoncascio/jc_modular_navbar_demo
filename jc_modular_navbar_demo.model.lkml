@@ -152,7 +152,7 @@ view: navbar3 {
   }
 
 }
-
+# https://cloudcenorthamnewyork.cloud.looker.com/explore/jc_modular_navbar_demo/countries?qid=Uvmsr3zD1VwAbTYPBKIgU6&toggle=vis
 
 explore: countries {
   view_name: country_reference

@@ -185,7 +185,7 @@ view: modular_navigation_base {
         {% assign templateParts = tempString1 | split: "[[dashUrl]]" %}
         {% assign tempString2 = "" %}
         {% assign tempString2 = tempString2 | append: templateParts[0] %}
-        {% assign tempString2 = tempString2 | append: dashUrl %}
+        {% assign tempString2 = tempString2 | append: dashUrl | append: "?" | append: queryString %}
         {% assign tempString2 = tempString2 | append: templateParts[1] %}
 
         <!-- add link to navItemsHtml -->
