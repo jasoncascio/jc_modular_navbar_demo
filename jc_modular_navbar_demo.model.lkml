@@ -33,6 +33,7 @@ view: navbar1 {
 
 }
 
+
 view: navbar2 {
   extends: [advanced_modular_navigation_base]
 
