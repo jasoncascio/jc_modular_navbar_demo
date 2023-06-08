@@ -101,7 +101,7 @@ view: modular_navigation_base {
 
   dimension: liquid_navigation_bar {
     type: string
-    sql: '' ;;
+    sql: CURRENT_TIMESTAMP() ;; # <!-- **force cache refresh test - doesn't help -->
     html:
       <!-- ********************************************************* -->
       <!-- ******************* build queryString ******************* -->
@@ -205,6 +205,10 @@ view: modular_navigation_base {
       {% assign finalNavbarHtml = finalNavbarHtml | append: navBarTemplateParts[1] %}
 
       {{ finalNavbarHtml }}
+
+      <!-- **force cache refresh test - doesn't help -->
+      <span style="display: none;">{{ "now" | date: "%Y-%m-%d %H:%M:%S:%L" }}</span>
+      <span style="display: none;">{{ value }}</span>
 
 
       <!-- NOTE: There's a bug in _explore._dashboard_url liquid implementation https://buganizer.corp.google.com/issues/281606368 -->
