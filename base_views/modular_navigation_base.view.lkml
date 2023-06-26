@@ -47,7 +47,7 @@ view: modular_navigation_base {
     hidden: yes
     description: "
       This defines the visual representation that the current dashboard link should take.
-      Available Tokens: {[[dashName]]: will render the dash name into the html, [[dashUrl]]: writes url - pretty much always into an href}
+      Available Tokens: {[[dashName]]: will render the dash name into the html, [[dashUrl]]: writes url - pretty much always used to write an href}
     "
     type: string
     sql:
@@ -56,10 +56,10 @@ view: modular_navigation_base {
   }
 
   dimension: linkTemplate {
-    hidden: yes
+    hidden: no
     description: "
       This defines the visual representation that other dashboard links should take.
-      Available Tokens: {[[dashName]]: will render the dash name into the html, [[dashUrl]]: writes url - pretty much always into an href}
+      Available Tokens: {[[dashName]]: will render the dash name into the html, [[dashUrl]]: writes url - pretty much always used to write an href}
     "
     type: string
     sql:
